@@ -30,11 +30,13 @@ class MyApp extends StatelessWidget {
             children: [
               Text('the Q'),
               ElevatedButton(
-                onPressed: answerQuestions,
+                onPressed: () => print('Number one is chosen'),
                 child: Text('answer 1'),
               ),
               ElevatedButton(
-                onPressed: answerQuestions,
+                onPressed: () {
+                  print('Am Chosen');
+                },
                 child: Text('answer 1'),
               ),
             ],
