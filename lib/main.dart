@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -11,20 +14,27 @@ class MyApp extends StatelessWidget {
       'what/s my name',
       'how old am i',
     ];
+
+    void answerQuestions() {
+      if (kDebugMode) {
+        print('Answer chosen');
+      }
+    }
+
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
             title: const Text('My First Flutter App'),
           ),
           body: Column(
-            children: const [
+            children: [
               Text('the Q'),
               ElevatedButton(
-                onPressed: null,
+                onPressed: answerQuestions,
                 child: Text('answer 1'),
               ),
               ElevatedButton(
-                onPressed: null,
+                onPressed: answerQuestions,
                 child: Text('answer 1'),
               ),
             ],
