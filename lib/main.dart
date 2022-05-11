@@ -1,12 +1,26 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  var question_index = 0;
+  // ignore: prefer_const_constructors_in_immutables
+  MyApp({Key? key}) : super(key: key);
+
+  int answerQuestions(int index) {
+    if (kDebugMode) {
+      print('the index is $index');
+    }
+    return index;
+  }
+
+  void answerQuestion() {
+    question_index = question_index + 1;
+    answerQuestions(question_index);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,27 +29,21 @@ class MyApp extends StatelessWidget {
       'how old am i',
     ];
 
-    void answerQuestions() {
-      if (kDebugMode) {
-        print('Answer chosen');
-      }
-    }
-
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('My First Flutter App'),
+            title: Text('My First Flutter App'),
           ),
           body: Column(
             children: [
-              Text('the Q'),
+              Text(question[question_index]),
               ElevatedButton(
-                onPressed: () => print('Number one is chosen'),
+                onPressed: () => answerQuestion,
                 child: Text('answer 1'),
               ),
               ElevatedButton(
                 onPressed: () {
-                  print('Am Chosen');
+                  answerQuestion;
                 },
                 child: Text('answer 1'),
               ),
